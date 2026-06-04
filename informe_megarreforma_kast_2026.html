@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Megarreforma 2026 · Guía Ciudadana Visual</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ═══════════ VARIABLES ═══════════ */
+:root {
+  --eco-d:#0D2E52; --eco-m:#1A6BAA; --eco-l:#3FA0E8; --eco-bg:#EBF5FF;
+  --edu-d:#3D1A6B; --edu-m:#7B3FB5; --edu-l:#B07FE8; --edu-bg:#F5EEFF;
+  --amb-d:#0D4020; --amb-m:#1D8A45; --amb-l:#4CC87A; --amb-bg:#EAFAF1;
+  --jus-d:#4A1800; --jus-m:#C0392B; --jus-l:#E8735A; --jus-bg:#FEF0ED;
+  --warn:#E67E22; --warn-bg:#FEF9E7;
+  --txt:#1A2535; --txt2:#3D4F63;   /* WCAG AA ≥ 4.5:1 sobre blanco */
+  --bg:#F0F3F7; --white:#FFFFFF;
+  --shadow:0 4px 28px rgba(0,0,0,.10);
+  --r:18px;
+}
+/* ═══════════ RESET ═══════════ */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  font-size:16px;   /* mínimo WCAG mobile */
+  line-height:1.65;
+}
+
+/* ═══════════ HERO ═══════════ */
+.hero{
+  background:linear-gradient(150deg,#050E1B 0%,#0D2E52 45%,#1A5C99 100%);
+  padding:68px 24px 60px;text-align:center;position:relative;overflow:hidden;
+}
+.hero-chip{
+  display:inline-block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);
+  border-radius:30px;padding:6px 20px;font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:22px;
+}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;}
+.hero h1 em{font-style:normal;color:#5DC8F5;}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.78);max-width:620px;margin:0 auto 36px;}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+.hero-pill{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;padding:7px 16px;font-size:12.5px;color:rgba(255,255,255,.85);
+  display:flex;align-items:center;gap:6px;
+}
+
+/* ═══════════ NAV ═══════════ */
+.nav-bar{background:#fff;border-bottom:2px solid #E5EBF2;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.nav-inner{display:flex;overflow-x:auto;}
+.nav-btn{
+  flex:1;min-width:110px;padding:14px 10px;text-align:center;font-size:13px;font-weight:600;
+  border-bottom:3px solid transparent;cursor:pointer;text-decoration:none;color:var(--txt2);
+  transition:all .2s;white-space:nowrap;
+}
+.nav-btn.eco{color:var(--eco-m);border-bottom-color:var(--eco-m);}
+.nav-btn.edu{color:var(--edu-m);border-bottom-color:var(--edu-m);}
+.nav-btn.amb{color:var(--amb-m);border-bottom-color:var(--amb-m);}
+.nav-btn.jus{color:var(--jus-m);border-bottom-color:var(--jus-m);}
+.nav-btn:hover{opacity:.8;}
+
+/* ═══════════ CONTENEDOR ═══════════ */
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+/* ═══════════ SECCIÓN ═══════════ */
+.seccion{padding:64px 0 20px;}
+.sec-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:36px;}
+.sec-icon-wrap{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.8rem;}
+.sec-kicker{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-bottom:4px;}
+.sec-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.2;}
+.sec-desc{font-size:.95rem;color:var(--txt2);margin-top:6px;}
+
+/* ═══════════ TARJETAS ═══════════ */
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:visible;margin-bottom:24px;}
+.card-head{padding:22px 24px 18px;display:flex;align-items:center;gap:14px;border-radius:var(--r) var(--r) 0 0;position:relative;z-index:1;}
+.card-head h3{font-size:1.05rem;font-weight:700;}
+.card-head .ch-sub{font-size:.85rem;color:var(--txt2);margin-top:3px;}
+.card-body{padding:20px 24px 24px;overflow:visible;position:relative;}
+
+/* ═══════════ ESTADÍSTICAS HERO ═══════════ */
+.stats-band{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0 40px;}
+.stat-box{flex:1 1 150px;min-width:0;background:#fff;border-radius:16px;padding:20px 16px;text-align:center;box-shadow:var(--shadow);}
+.stat-box .big{font-size:2.2rem;font-weight:900;line-height:1;margin-bottom:5px;}
+.stat-box .lbl{font-size:.78rem;color:var(--txt2);line-height:1.35;}
+
+/* ═══════════ PILLS DE IMPACTO ═══════════ */
+.impact-headline{
+  display:flex;align-items:center;gap:10px;
+  background:#F4F7FF;border-left:4px solid var(--eco-m);border-radius:0 10px 10px 0;
+  padding:12px 16px;margin-bottom:14px;font-size:.9rem;font-weight:600;line-height:1.4;
+}
+.impact-headline .arrow{font-size:1.1rem;flex-shrink:0;}
+
+/* ═══════════ CHUNKS (bullet cards) ═══════════ */
+.chunk-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+.chunk-list li{
+  display:flex;gap:10px;align-items:flex-start;
+  background:#FAFBFD;border-radius:10px;padding:11px 14px;
+  font-size:.88rem;line-height:1.5;color:var(--txt);
+}
+.chunk-list li .dot{width:9px;height:9px;border-radius:50%;margin-top:5px;flex-shrink:0;}
+.d-pos{background:#27AE60;}.d-neg{background:#E74C3C;}.d-mix{background:#E67E22;}.d-neu{background:#3498DB;}
+
+/* ═══════════ CITI-BOX (contextual) ═══════════ */
+.citi-box{border-radius:14px;padding:18px 20px;margin:14px 0;display:flex;gap:14px;align-items:flex-start;}
+.citi-box .ci{font-size:1.5rem;flex-shrink:0;margin-top:2px;}
+.citi-box strong{font-size:.9rem;font-weight:700;display:block;margin-bottom:5px;}
+.citi-box p,.citi-box ul{font-size:.88rem;line-height:1.55;color:var(--txt);}
+.citi-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;padding-left:2px;}
+.citi-box ul li::before{content:"→ ";font-weight:700;}
+.citi-pos{background:#EAFAF1;border-left:4px solid #27AE60;}
+.citi-neg{background:#FEF0ED;border-left:4px solid #E74C3C;}
+.citi-mix{background:#FEF9E7;border-left:4px solid #E67E22;}
+.citi-jus{background:#EAF2FB;border-left:4px solid #2471A3;}
+.citi-info{background:#F4F7FF;border-left:4px solid #1A6BAA;}
+
+/* ═══════════ TOOLTIPS ═══════════ */
+.tip{
+  border-bottom:2px dashed var(--eco-m);cursor:help;
+  font-weight:600;color:var(--eco-m);white-space:nowrap;
+}
+/* Tooltip flotante — posición fijada 100% por JS */
+#tt{
+  position:fixed;
+  z-index:9999;
+  background:#1A2535;
+  color:#fff;
+  border-radius:10px;
+  padding:10px 14px;
+  font-size:.82rem;
+  font-weight:400;
+  line-height:1.55;
+  max-width:260px;
+  text-align:left;
+  pointer-events:none;
+  box-shadow:0 6px 28px rgba(0,0,0,.35);
+  white-space:normal;
+  /* oculto hasta que JS lo posicione */
+  visibility:hidden;
+  opacity:0;
+  transition:opacity .15s;
+  /* posición inicial fuera de pantalla */
+  top:-999px;
+  left:-999px;
+}
+#tt.show{
+  visibility:visible;
+  opacity:1;
+}
+#tt::after{
+  content:'';
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border:7px solid transparent;
+  border-top-color:#1A2535;
+}
+
+/* ═══════════ GRIDS INTERNOS ═══════════ */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+@media(max-width:720px){.g4{grid-template-columns:1fr 1fr;}.g3{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+.gi{border-radius:12px;padding:16px;min-width:0;word-break:break-word;}
+
+/* ═══════════ FLUJOS DE PASOS ═══════════ */
+.step-flow{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;gap:8px;align-items:start;margin-bottom:14px;}
+.step-flow.s4{grid-template-columns:1fr 20px 1fr 20px 1fr 20px 1fr;}
+@media(max-width:560px){.step-flow,.step-flow.s4{grid-template-columns:1fr;}.step-arrow{display:none!important;}}
+.step-box{background:#F8F9FA;border-radius:12px;padding:14px;text-align:center;min-width:0;word-break:break-word;}
+.step-box .se{font-size:1.8rem;margin-bottom:6px;}
+.step-box .sl{font-size:.76rem;font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;}
+.step-box .st{font-size:.82rem;color:var(--txt2);line-height:1.5;}
+.step-arrow{display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#BDC3C7;padding-top:30px;}
+
+/* ═══════════ TABS DE TIMELINE ═══════════ */
+.tl-tabs{margin:0;}
+.tl-tab-btns{display:flex;gap:0;border-bottom:2px solid #E8ECF2;margin-bottom:0;}
+.tl-tab-btn{
+  flex:1;padding:12px 16px;font-size:.85rem;font-weight:700;cursor:pointer;
+  background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;
+  color:var(--txt2);transition:all .15s;
+}
+.tl-tab-btn.active{border-bottom-color:currentColor;color:var(--eco-m);}
+.tl-tab-btn.cp{color:var(--warn);}
+.tl-tab-btn.cp.active{border-bottom-color:var(--warn);}
+.tl-tab-btn.lp{color:var(--eco-m);}
+.tl-tab-btn.lp.active{border-bottom-color:var(--eco-m);}
+.tl-tab-content{display:none;padding:20px 24px 22px;}
+.tl-tab-content.active{display:block;}
+.tl-label{
+  display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;
+  letter-spacing:1.2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;
+}
+.lbl-cp{background:#FEF9E7;color:#9A7D0A;}
+.lbl-lp{background:#EBF5FF;color:#1A5C99;}
+.tl-items{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.tl-item{display:flex;gap:10px;font-size:.88rem;line-height:1.5;}
+.tl-dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex-shrink:0;}
+.tl-item b{display:block;font-weight:700;font-size:.88rem;margin-bottom:3px;}
+.tl-desc{display:block;font-size:.88rem;line-height:1.55;color:var(--txt);}
+
+/* ═══════════ VISUAL CARDS ═══════════ */
+.visual-row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0;}
+.vc{flex:1 1 170px;min-width:0;background:#fff;border-radius:16px;padding:18px 14px;text-align:center;box-shadow:var(--shadow);word-break:break-word;}
+.vc svg{display:block;margin:0 auto 10px;}
+.vc-title{font-size:.88rem;font-weight:700;margin-bottom:5px;}
+.vc-desc{font-size:.8rem;color:var(--txt2);line-height:1.45;}
+.vc-tag{display:inline-block;margin-top:9px;padding:3px 11px;border-radius:20px;font-size:.74rem;font-weight:700;}
+.tag-v{background:#EAFAF1;color:#1E8449;}.tag-r{background:#FDEDEC;color:#C0392B;}.tag-m{background:#FEF9E7;color:#9A7D0A;}
+
+/* ═══════════ BALANCE PRO/CON ═══════════ */
+.balance-row{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0 8px;}
+.bs{flex:1 1 200px;min-width:0;border-radius:14px;padding:18px;}
+.bs-pro{background:#F0FBF4;border:1.5px solid #A9DFBF;}
+.bs-con{background:#FEF0ED;border:1.5px solid #FADBD8;}
+.bs h4{font-size:.88rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+.bs-pro h4{color:#1E8449;}.bs-con h4{color:#C0392B;}
+.bs ul{list-style:none;}
+.bs ul li{font-size:.84rem;padding:6px 0;border-bottom:1px dashed rgba(0,0,0,.07);display:flex;gap:7px;line-height:1.45;}
+.bs ul li:last-child{border:none;}
+
+/* ═══════════ QUIZ ═══════════ */
+.quiz-block{
+  background:linear-gradient(135deg,#F8F9FD,#EEF3FF);
+  border:2px solid #D5E3FF;border-radius:18px;padding:24px;margin:28px 0 4px;
+}
+.quiz-block h4{font-size:.95rem;font-weight:800;color:var(--eco-d);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.quiz-q{font-size:.9rem;font-weight:600;color:var(--txt);margin-bottom:14px;line-height:1.5;}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+@media(max-width:480px){.quiz-opts{grid-template-columns:1fr;}}
+.quiz-opt{
+  background:#fff;border:2px solid #D8E4F5;border-radius:12px;padding:12px 14px;
+  font-size:.86rem;cursor:pointer;text-align:left;transition:all .15s;
+  display:flex;gap:10px;align-items:flex-start;line-height:1.45;color:var(--txt);
+}
+.quiz-opt:hover{border-color:var(--eco-m);background:#F0F7FF;}
+.quiz-opt .ql{font-weight:800;flex-shrink:0;width:18px;color:var(--eco-m);}
+.quiz-opt.correct{background:#EAFAF1;border-color:#27AE60;color:#1E8449;}
+.quiz-opt.wrong{background:#FEF0ED;border-color:#E74C3C;color:#C0392B;}
+.quiz-opt.revealed-correct{background:#EAFAF1;border-color:#27AE60;}
+.quiz-opt:disabled,.quiz-opt[disabled]{cursor:default;pointer-events:none;}
+.quiz-feedback{font-size:.84rem;border-radius:10px;padding:12px 14px;display:none;line-height:1.5;}
+.quiz-feedback.show{display:block;}
+.quiz-feedback.ok{background:#EAFAF1;color:#1E5E3A;}
+.quiz-feedback.ko{background:#FEF0ED;color:#922B21;}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+.quiz-progress{font-size:.8rem;color:var(--txt2);}
+.quiz-next{
+  background:var(--eco-m);color:#fff;border:none;border-radius:10px;
+  padding:9px 20px;font-size:.85rem;font-weight:700;cursor:pointer;
+  display:none;
+}
+.quiz-next.show{display:inline-block;}
+.quiz-result{text-align:center;padding:12px;font-weight:700;font-size:.95rem;display:none;}
+.quiz-result.show{display:block;}
+
+/* ═══════════ SECCIÓN CORTE ═══════════ */
+.corte-section{
+  background:linear-gradient(135deg,#0D1F33,#1A3A5C);
+  border-radius:22px;padding:36px 32px;color:#fff;margin:40px 0;
+  box-shadow:0 8px 32px rgba(0,0,0,.2);
+}
+.corte-section h2{font-size:1.4rem;font-weight:800;margin-bottom:4px;}
+.corte-section .sub{opacity:.7;font-size:.88rem;margin-bottom:26px;}
+.corte-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.corte-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:18px;}
+.corte-card h4{font-size:.86rem;font-weight:700;color:#5DC8F5;margin-bottom:8px;}
+.corte-card ul{list-style:none;font-size:.83rem;opacity:.87;display:flex;flex-direction:column;gap:6px;}
+.corte-card ul li{display:block;padding-left:14px;line-height:1.5;position:relative;overflow-wrap:break-word;word-break:break-word;}
+.corte-card ul li::before{content:"·";font-size:1.2rem;position:absolute;left:0;top:-1px;}
+.corte-veredicto{
+  margin-top:20px;padding:16px 20px;
+  background:rgba(255,255,255,.07);border-left:4px solid #5DC8F5;
+  border-radius:0 10px 10px 0;font-size:.88rem;line-height:1.65;opacity:.9;
+}
+
+/* ═══════════ TABLA RESUMEN ═══════════ */
+.tabla-resumen{width:100%;border-collapse:collapse;font-size:.84rem;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin:20px 0 40px;}
+.tabla-resumen th{padding:13px 14px;text-align:left;font-weight:700;font-size:.8rem;}
+.tabla-resumen td{padding:11px 14px;border-bottom:1px solid #F0F3F7;vertical-align:top;line-height:1.5;}
+.tabla-resumen tr:last-child td{border:none;}
+.tabla-resumen tr:nth-child(even) td{background:#FAFBFD;}
+.rtag{display:inline-block;padding:3px 9px;border-radius:20px;font-size:.73rem;font-weight:700;white-space:nowrap;}
+.rtag-v{background:#EAFAF1;color:#1E8449;}.rtag-r{background:#FDEDEC;color:#C0392B;}.rtag-m{background:#FEF9E7;color:#9A7D0A;}
+
+/* ═══════════ CONCLUSIÓN ═══════════ */
+.conclusion{background:linear-gradient(135deg,#0D2E52,#1A6BAA);color:#fff;border-radius:22px;padding:40px 36px;margin:0 0 48px;}
+.conclusion h2{font-size:1.4rem;font-weight:800;margin-bottom:16px;}
+.tres-pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;}
+.pilar{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:20px 18px;text-align:center;}
+.pilar .p-icon{font-size:2.2rem;margin-bottom:8px;}
+.pilar .p-title{font-size:.95rem;font-weight:700;margin-bottom:6px;}
+.pilar .p-desc{font-size:.82rem;opacity:.82;line-height:1.5;}
+
+/* ═══════════ FOOTER ═══════════ */
+.footer{background:#1A2535;color:rgba(255,255,255,.62);padding:28px 24px;text-align:center;font-size:.8rem;line-height:1.8;}
+.footer strong{color:rgba(255,255,255,.9);}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:600px){
+  body{font-size:16px;}
+  .card-body{padding:16px 16px 20px;}
+  .card-head{padding:18px 16px 14px;}
+  .corte-section{padding:28px 20px;}
+  .conclusion{padding:28px 20px;}
+  .seccion{padding:48px 0 16px;}
+}
+
+/* ═══════════ UTILIDADES ═══════════ */
+.texto-eco{color:var(--eco-m);}.texto-edu{color:var(--edu-m);}.texto-amb{color:var(--amb-m);}.texto-jus{color:var(--jus-m);}
+.badge{display:inline-block;background:var(--eco-m);color:#fff;border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-chip">Guía Ciudadana hecha por GAMD · Política Pública Chile 2026</div>
+  <h1>Megarreforma 2026<br><em>¿Qué cambia para Chile?</em></h1>
+  <p class="hero-sub">Una guía visual, interactiva y ciudadana del proyecto de ley "Para la Reconstrucción Nacional y el Desarrollo Económico y Social" — explicada sin tecnicismos.</p>
+  <div class="hero-pills">
+    <div class="hero-pill">📅 Ingresó: 22 abril 2026</div>
+    <div class="hero-pill">✅ Cámara aprobó: 20-21 mayo 2026</div>
+    <div class="hero-pill">🏛️ En Senado</div>
+    <div class="hero-pill">📋 Boletín N°18.216-05</div>
+  </div>
+</div>
+
+<!-- ─── NAV ─── -->
+<div class="nav-bar">
+  <div class="nav-inner wrap">
+    <a href="#economia"  class="nav-btn eco">💹 Economía</a>
+    <a href="#educacion" class="nav-btn edu">🎓 Educación</a>
+    <a href="#ambiente"  class="nav-btn amb">🌿 Medioambiente</a>
+    <a href="#justicia"  class="nav-btn jus">⚖️ Corte Suprema</a>
+    <a href="#resumen"   class="nav-btn" style="color:#4A5568">📊 Resumen</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ─── INTRO ─── -->
+<div class="seccion" id="intro">
+  <div class="sec-header">
+    <div class="sec-icon-wrap" style="background:#EBF5FF">📋</div>
+    <div>
+      <div class="sec-kicker" style="color:var(--eco-m)">¿Qué es?</div>
+      <div class="sec-title">La reforma en 5 ideas clave</div>
+      <div class="sec-desc">Más de 40 medidas agrupadas en torno a cinco objetivos declarados.</div>
+    </div>
+  </div>
+  <div class="visual-row">
+    <div class="vc">
+      <svg width="48" height="48" viewBox="0 0 48 48"><text y="36" x="24" text-anchor="middle" font-size="34">🏗️</text></svg>
+      <div class="vc-title">Reconstruir zonas incendiadas</div>
+      <div class="vc-desc">$400 mil millones para reparar viviendas en Ñuble, Biobío y Valparaíso.</div>
+      <span class="vc-tag tag-v">Gasto directo</span>
+    </div>
+    <div class="vc">
+      <svg width="48" height="48" viewBox="0 0 48 48"><text y="36" x="24" text-anchor="middle" font-size="34">📉</text></svg>
+      <div class="vc-title">Bajar impuestos a empresas</div>
+      <div class="vc-desc">Impuesto corporativo baja de 27% a 23% para atraer inversión.</div>
+      <span class="vc-tag tag-m">Mixto</span>
+    </div>
+    <div class="vc">
+      <svg width="48" height="48" viewBox="0 0 48 48"><text y="36" x="24" text-anchor="middle" font-size="34">🏠</text></svg>
+      <div class="vc-title">Reactivar la construcción</div>
+      <div class="vc-desc">Sin IVA en viviendas nuevas por 12 meses para generar empleos.</div>
+      <span class="vc-tag tag-v">Corto plazo</span>
+    </div>
+    <div class="vc">
+      <svg width="48" height="48" viewBox="0 0 48 48"><text y="36" x="24" text-anchor="middle" font-size="34">⏱️</text></svg>
+      <div class="vc-title">Menos trabas para invertir</div>
+      <div class="vc-desc">Simplifica trámites ambientales y plazos de aprobación.</div>
+      <span class="vc-tag tag-m">Con riesgos</span>
+    </div>
+    <div class="vc">
+      <svg width="48" height="48" viewBox="0 0 48 48"><text y="36" x="24" text-anchor="middle" font-size="34">💰</text></svg>
+      <div class="vc-title">Reducir el déficit del Estado</div>
+      <div class="vc-desc">Ajusta gratuidad universitaria y elimina algunos subsidios.</div>
+      <span class="vc-tag tag-r">Impacto social</span>
+    </div>
+  </div>
+  <div class="stats-band">
+    <div class="stat-box"><div class="big" style="color:var(--eco-m)">40+</div><div class="lbl">Medidas en la ley</div></div>
+    <div class="stat-box"><div class="big" style="color:#27AE60">4%</div><div class="lbl">Crecimiento anual prometido al 2030</div></div>
+    <div class="stat-box"><div class="big" style="color:var(--eco-m)">23%</div><div class="lbl">Nuevo impuesto corporativo (desde 27%)</div></div>
+    <div class="stat-box"><div class="big" style="color:#E74C3C">25 años</div><div class="lbl">Garantía tributaria para grandes inversores</div></div>
+    <div class="stat-box"><div class="big" style="color:#27AE60">300 mil</div><div class="lbl">Empleos formales prometidos</div></div>
+    <div class="stat-box"><div class="big" style="color:#E74C3C">9%</div><div class="lbl">Desempleo actual (meta: bajar a 6,5%)</div></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     ECONOMÍA
+════════════════════════════════════════ -->
+<div class="seccion" id="economia">
+  <div class="sec-header">
+    <div class="sec-icon-wrap" style="background:var(--eco-bg)">💹</div>
+    <div>
+      <div class="sec-kicker texto-eco">Impacto Económico</div>
+      <div class="sec-title" style="color:var(--eco-d)">¿Qué cambia en la economía del país?</div>
+      <div class="sec-desc">Impuestos, inversión, empleo y deuda del Estado.</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta 1: Rebaja tributaria -->
+  <div class="card">
+    <div class="card-head" style="background:var(--eco-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(26,107,170,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">📉</text></svg>
+      <div>
+        <h3 class="texto-eco">Rebaja tributaria → Las empresas pagan menos impuestos</h3>
+        <p class="ch-sub">¿Quién gana? ¿Quién paga el costo?</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:16px;align-items:center;padding:10px 0 14px;">
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:3rem;font-weight:900;color:#E74C3C;line-height:1;">27%</div>
+          <div style="font-size:.8rem;color:var(--txt2);margin-top:4px;">Impuesto actual</div>
+        </div>
+        <div style="min-width:0;">
+          <div style="background:var(--eco-bg);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;font-size:.76rem;color:var(--txt2);margin-bottom:6px;"><span>2026</span><span>2030</span></div>
+            <div style="background:#DDE8F5;border-radius:8px;height:14px;overflow:hidden;">
+              <div style="background:linear-gradient(90deg,#E74C3C,#3FA0E8);width:85%;height:100%;border-radius:8px;"></div>
+            </div>
+            <div style="font-size:.76rem;color:var(--txt2);margin-top:6px;text-align:center;">Reducción gradual durante el mandato</div>
+          </div>
+        </div>
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:3rem;font-weight:900;color:#27AE60;line-height:1;">23%</div>
+          <div style="font-size:.8rem;color:var(--txt2);margin-top:4px;">Meta final</div>
+        </div>
+      </div>
+      <ul class="chunk-list">
+        <li><span class="dot d-pos"></span><div>Las empresas pagan menos impuestos → tienen más dinero para <strong>reinvertir y contratar personas</strong>.</div></li>
+        <li><span class="dot d-neg"></span><div>El Estado recauda menos en el corto plazo → <strong>menos recursos para salud, educación y servicios públicos</strong> si el crecimiento no compensa.</div></li>
+        <li><span class="dot d-mix"></span><div>El <span class="tip" data-tip="Fondo Monetario Internacional: organismo financiero mundial que evalúa la salud económica de los países">FMI</span> advirtió: la reforma <strong>no se paga sola</strong> y rebajó las proyecciones de crecimiento de Chile para 2026.</div></li>
+      </ul>
+      <div class="citi-box citi-mix">
+        <div class="ci">🤔</div>
+        <div><strong>¿Qué significa esto para mí?</strong>
+          <ul>
+            <li>Si eres dueño de empresa → pagas menos impuestos, tienes más margen para invertir.</li>
+            <li>Si eres trabajador o usuario de servicios públicos → el riesgo es que haya menos presupuesto disponible para el Estado.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta 2: Candado 25 años -->
+  <div class="card">
+    <div class="card-head" style="background:var(--eco-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(26,107,170,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">🔒</text></svg>
+      <div>
+        <h3 class="texto-eco"><span class="tip" data-tip="Garantía legal de que los impuestos no cambiarán por un período determinado, sin importar quién gobierne">Invariabilidad tributaria</span> de 25 años → Ningún gobierno podrá subir los impuestos a grandes inversores hasta 2051</h3>
+        <p class="ch-sub">La medida más polémica del capítulo económico</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div style="background:var(--eco-bg);border-radius:12px;padding:16px;margin-bottom:14px;">
+        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;">
+          <div style="background:var(--eco-m);color:#fff;border-radius:8px;padding:10px 14px;text-align:center;">
+            <div style="font-size:1rem;font-weight:900;">2026</div><div style="font-size:.7rem;opacity:.8;">Hoy</div>
+          </div>
+          <div style="min-width:0;">
+            <div style="background:linear-gradient(90deg,var(--eco-m),#5DC8F5);height:12px;border-radius:6px;"></div>
+            <div style="font-size:.76rem;color:var(--txt2);margin-top:6px;text-align:center;">25 años · Impuestos congelados para inversiones &gt; USD 50M</div>
+          </div>
+          <div style="background:#E74C3C;color:#fff;border-radius:8px;padding:10px 14px;text-align:center;">
+            <div style="font-size:1rem;font-weight:900;">2051</div><div style="font-size:.7rem;opacity:.8;">El año 2051</div>
+          </div>
+        </div>
+      </div>
+      <ul class="chunk-list">
+        <li><span class="dot d-neg"></span><div>Aplica a proyectos de más de <strong>USD 50 millones</strong> en minería, energía, infraestructura y más.</div></li>
+        <li><span class="dot d-neg"></span><div>Los próximos <strong>6 presidentes y sus parlamentos</strong> no podrán subir esos impuestos aunque el país lo necesite.</div></li>
+        <li><span class="dot d-neg"></span><div>La oposición lo llama el <strong>"candado neoliberal"</strong>: hipoteca la soberanía tributaria del país durante un cuarto de siglo.</div></li>
+        <li><span class="dot d-pos"></span><div>El gobierno argumenta que la estabilidad es lo que <strong>atrae capital extranjero</strong> a Chile frente a países competidores.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tarjeta 3: Construcción y empleo -->
+  <div class="card">
+    <div class="card-head" style="background:var(--eco-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(26,107,170,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">🏠</text></svg>
+      <div>
+        <h3 class="texto-eco">IVA 0% en casas nuevas → Reactiva la construcción y genera empleo</h3>
+        <p class="ch-sub">El efecto más rápido y tangible para la gente</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="g3" style="margin-bottom:14px;">
+        <div class="gi" style="background:var(--eco-bg);text-align:center;">
+          <div style="font-size:1.8rem;margin-bottom:6px;">🏠</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">IVA 0% por 12 meses</div>
+          <div style="font-size:.8rem;color:var(--txt2);">Las casas y departamentos nuevos quedan libres del 19% de IVA, bajando su precio.</div>
+        </div>
+        <div class="gi" style="background:var(--eco-bg);text-align:center;">
+          <div style="font-size:1.8rem;margin-bottom:6px;">👷</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">180 mil empleos</div>
+          <div style="font-size:.8rem;color:var(--txt2);">La construcción es el sector que más empleo genera por peso invertido.</div>
+        </div>
+        <div class="gi" style="background:var(--eco-bg);text-align:center;">
+          <div style="font-size:1.8rem;margin-bottom:6px;">💼</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">Subsidio al empleo formal</div>
+          <div style="font-size:.8rem;color:var(--txt2);">Las empresas reciben un crédito por cada nuevo trabajador formal que contraten.</div>
+        </div>
+      </div>
+      <div class="citi-box citi-pos">
+        <div class="ci">✅</div>
+        <div><strong>¿Quién se beneficia directamente?</strong>
+          <ul>
+            <li>Trabajadores de construcción, materiales, transporte y servicios financieros.</li>
+            <li>Familias que estaban esperando bajar el precio de viviendas nuevas.</li>
+            <li>Zonas afectadas por incendios que necesitan reconstrucción rápida.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline economía (tabs) -->
+  <div class="card">
+    <div class="tl-tabs">
+      <div class="tl-tab-btns">
+        <button class="tl-tab-btn cp active" onclick="switchTab(this,'eco-cp','eco')">⚡ Corto Plazo (2026-2028)</button>
+        <button class="tl-tab-btn lp" onclick="switchTab(this,'eco-lp','eco')">🔭 Largo Plazo (2029 en adelante)</button>
+      </div>
+      <div id="eco-cp" class="tl-tab-content active">
+        <span class="tl-label lbl-cp">⚡ Corto Plazo</span>
+        <ul class="tl-items">
+          <li><div class="tl-dot d-pos"></div><div><b>Reactivación de la construcción</b><span class="tl-desc">La exención de IVA puede generar decenas de miles de empleos en pocas semanas.</span></div></li>
+          <li><div class="tl-dot d-pos"></div><div><b>Confianza empresarial</b><span class="tl-desc">Señal tributaria y certeza jurídica aumentan expectativas de inversión privada.</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Menos ingresos para el Estado</b><span class="tl-desc">La baja de impuestos genera un déficit inicial. Kast admitió que el plan de austeridad causará "dolor" con recortes de USD 6.000 millones.</span></div></li>
+          <li><div class="tl-dot d-mix"></div><div><b>Beneficios concentrados en quienes más tienen</b><span class="tl-desc">La exención de IVA beneficia principalmente a quienes pueden comprar vivienda nueva, no a los más vulnerables.</span></div></li>
+        </ul>
+      </div>
+      <div id="eco-lp" class="tl-tab-content">
+        <span class="tl-label lbl-lp">🔭 Largo Plazo</span>
+        <ul class="tl-items">
+          <li><div class="tl-dot d-pos"></div><div><b>Mayor inversión si funciona</b><span class="tl-desc">Si más empresas invierten en Chile, el PIB puede subir y crear una espiral virtuosa de empleo y recaudación.</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Riesgo de déficit estructural</b><span class="tl-desc">El FMI rebajó las proyecciones de crecimiento de Chile para 2026, cuestionando que la reforma se autofinancíe.</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Soberanía tributaria limitada hasta 2051</b><span class="tl-desc">El "candado" impide que futuros gobiernos suban impuestos a los grandes inversores aunque el país lo necesite.</span></div></li>
+          <li><div class="tl-dot d-mix"></div><div><b>Desigualdad en riesgo</b><span class="tl-desc">Chile ya es uno de los más desiguales de la OCDE. Sin compensación social, los beneficios concentrados en grandes empresas pueden agravarlo.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ ECONOMÍA -->
+  <div class="quiz-block" id="quiz-eco" data-section="eco">
+    <h4>🧠 ¿Entendiste la sección de Economía?</h4>
+    <div id="quiz-eco-area"></div>
+    <div class="quiz-nav">
+      <span class="quiz-progress" id="quiz-eco-prog"></span>
+      <button class="quiz-next" id="quiz-eco-next" onclick="nextQuestion('eco')">Siguiente →</button>
+    </div>
+    <div class="quiz-result" id="quiz-eco-result"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     EDUCACIÓN
+════════════════════════════════════════ -->
+<div class="seccion" id="educacion">
+  <div class="sec-header">
+    <div class="sec-icon-wrap" style="background:var(--edu-bg)">🎓</div>
+    <div>
+      <div class="sec-kicker texto-edu">Impacto en Educación</div>
+      <div class="sec-title" style="color:var(--edu-d)">¿Qué cambia para estudiantes y familias?</div>
+      <div class="sec-desc">Gratuidad universitaria, deudas estudiantiles y cuidado infantil.</div>
+    </div>
+  </div>
+
+  <!-- Gratuidad -->
+  <div class="card">
+    <div class="card-head" style="background:var(--edu-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(123,63,181,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">🚫</text></svg>
+      <div>
+        <h3 class="texto-edu">Nueva regla financiera → Congela la expansión de la gratuidad a nuevos estudiantes</h3>
+        <p class="ch-sub">Lo que no cambia · Lo que sí cambia · La trampa oculta del largo plazo</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="g2" style="margin-bottom:12px;">
+        <div class="gi" style="background:#fff;border-left:4px solid #27AE60;border:1px solid #A9DFBF;border-left-width:4px;">
+          <div style="font-size:.8rem;font-weight:700;color:#1E8449;margin-bottom:8px;">✅ LO QUE NO CAMBIA</div>
+          <ul class="chunk-list" style="margin:0;">
+            <li><span class="dot d-pos"></span><div>Estudiantes que <strong>ya tienen gratuidad</strong> la mantienen sin cambios.</div></li>
+            <li><span class="dot d-pos"></span><div>Las instituciones ya dentro del sistema <strong>siguen operando igual</strong>.</div></li>
+          </ul>
+        </div>
+        <div class="gi" style="background:#fff;border-left:4px solid #E74C3C;border:1px solid #FADBD8;border-left-width:4px;">
+          <div style="font-size:.8rem;font-weight:700;color:#C0392B;margin-bottom:8px;">🚫 LO QUE SÍ CAMBIA</div>
+          <ul class="chunk-list" style="margin:0;">
+            <li><span class="dot d-neg"></span><div>Ninguna universidad nueva entra al sistema de gratuidad en <strong>2028 ni 2029</strong>.</div></li>
+            <li><span class="dot d-neg"></span><div>La nueva fórmula exige metas de crecimiento muy altas para expandir la cobertura → <strong>queda congelada indefinidamente</strong>.</div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="citi-box citi-neg">
+        <div class="ci">⚠️</div>
+        <div><strong>La trampa del largo plazo — explicada simple</strong>
+          <ul>
+            <li>Antes: la gratuidad se expandía automáticamente cuando crecía la economía.</li>
+            <li>Ahora: la nueva fórmula exige un crecimiento tan alto (solo en base a economía no minera) que en la práctica nunca se cumple.</li>
+            <li>Resultado: familias de ingresos medios que esperaban acceder en el futuro → difícilmente podrán.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="citi-box citi-info">
+        <div class="ci">🌱</div>
+        <div><strong>Conexión con la realidad escolar — SNCAE</strong>
+          <p>Los establecimientos que trabajan hacia los niveles del <span class="tip" data-tip="Sistema Nacional de Certificación Ambiental de Establecimientos Educacionales: reconoce a colegios que integran la sustentabilidad en su gestión y currículo">SNCAE</span> saben que la educación superior accesible es clave para que sus estudiantes puedan estudiar carreras de ciencias ambientales, ingeniería forestal u otras vinculadas al cuidado del territorio. Limitar la gratuidad afecta directamente la posibilidad de que jóvenes de contextos vulnerables puedan formarse para proteger su propio entorno.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAE -->
+  <div class="card">
+    <div class="card-head" style="background:var(--edu-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(123,63,181,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">🆘</text></svg>
+      <div>
+        <h3 class="texto-edu">Deuda <span class="tip" data-tip="Crédito con Aval del Estado: préstamo universitario donde el banco financia los estudios y el Estado garantiza el pago si el estudiante no puede pagar">CAE</span> "castigada" → El Estado ofrece un plan de pago justo</h3>
+        <p class="ch-sub">Una de las pocas medidas con beneficio directo para ciudadanos vulnerables</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="step-flow" style="margin-bottom:14px;">
+        <div class="step-box">
+          <div class="se">😰</div>
+          <div class="sl">El problema</div>
+          <div class="st">Tienes deuda CAE y el banco ya ejecutó la garantía (te "castigaron"). La deuda sigue creciendo con intereses e inflación.</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-box" style="background:#EAFAF1;border:1.5px solid #A9DFBF;">
+          <div class="se">📝</div>
+          <div class="sl" style="color:#1E8449;">La solución</div>
+          <div class="st">Tienes <strong>90 días</strong> para acogerte a un plan de pago de <strong>hasta 48 cuotas</strong> en la Tesorería del Estado.</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-box" style="background:#EBF5FF;border:1.5px solid #AED6F1;">
+          <div class="se">🎉</div>
+          <div class="sl" style="color:var(--eco-m);">El alivio</div>
+          <div class="st">La deuda se <strong>congela en pesos</strong>: desaparecen para siempre los intereses futuros y la subida por inflación (<span class="tip" data-tip="Índice de Precios al Consumidor: mide cuánto suben los precios en promedio. Si tu deuda estaba indexada al IPC, crecía automáticamente cada mes">IPC</span>) mientras pagues.</div>
+        </div>
+      </div>
+      <div class="citi-box citi-pos">
+        <div class="ci">💳</div>
+        <div><strong>¿Eres deudor CAE "castigado"?</strong>
+          <ul>
+            <li>Esta medida es una segunda oportunidad con condiciones manejables.</li>
+            <li>Tienes exactamente 90 días desde la publicación de la ley para inscribirte.</li>
+            <li>Pagas cuotas fijas sin que la deuda siga inflándose cada mes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SENCE + Sala cuna -->
+  <div class="card">
+    <div class="card-head" style="background:var(--edu-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(123,63,181,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">⚖️</text></svg>
+      <div>
+        <h3 class="texto-edu">Fin de la <span class="tip" data-tip="Beneficio tributario que permitía a empresas descontar de sus impuestos el dinero gastado en capacitar a trabajadores mediante el SENCE">Franquicia SENCE</span> vs. Sala cuna universal</h3>
+        <p class="ch-sub">Una medida quita, otra da — el balance no es neutro</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="balance-row">
+        <div class="bs bs-con">
+          <h4>❌ Se elimina la Franquicia SENCE</h4>
+          <ul>
+            <li><span>→</span>Las empresas ya no tienen incentivo fiscal para capacitar a sus trabajadores.</li>
+            <li><span>→</span>Afecta especialmente a empleados de menores ingresos que dependen de esos cursos para mejorar sus condiciones laborales.</li>
+            <li><span>→</span>Menos inversión en habilidades → menor productividad del país a largo plazo.</li>
+          </ul>
+        </div>
+        <div class="bs bs-pro">
+          <h4>✅ Sala cuna universal</h4>
+          <ul>
+            <li><span>→</span>Más madres pueden trabajar con sus hijos cuidados.</li>
+            <li><span>→</span>Cada punto % adicional de participación laboral femenina puede generar hasta 79 mil nuevos empleos.</li>
+            <li><span>→</span>Impacto potencial de hasta +0,5% del PIB si se implementa bien.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="citi-box citi-mix">
+        <div class="ci">⚠️</div>
+        <div><strong>El riesgo de la sala cuna</strong>
+          <p>El financiamiento debe ser suficiente y progresivo. Si el costo recae desproporcionadamente sobre las <span class="tip" data-tip="Pequeñas y Medianas Empresas: negocios con menos de 250 trabajadores y ventas anuales acotadas">Pymes</span>, puede desincentivas la contratación de madres y padres con hijos menores de 2 años.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline educación (tabs) -->
+  <div class="card">
+    <div class="tl-tabs">
+      <div class="tl-tab-btns">
+        <button class="tl-tab-btn cp active" onclick="switchTab(this,'edu-cp','edu')">⚡ Corto Plazo (2026-2028)</button>
+        <button class="tl-tab-btn lp" onclick="switchTab(this,'edu-lp','edu')">🔭 Largo Plazo (2029 en adelante)</button>
+      </div>
+      <div id="edu-cp" class="tl-tab-content active">
+        <span class="tl-label lbl-cp">⚡ Corto Plazo</span>
+        <ul class="tl-items">
+          <li><div class="tl-dot d-neg"></div><div><b>Freno a nuevas instituciones en gratuidad</b><span class="tl-desc">Ninguna universidad nueva entra al sistema en 2028-2029. Estudiantes de esas instituciones seguirán pagando.</span></div></li>
+          <li><div class="tl-dot d-pos"></div><div><b>Alivio para deudores CAE</b><span class="tl-desc">90 días para acogerse a plan de pago justo y sin intereses futuros.</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Menos capacitación laboral</b><span class="tl-desc">Sin Franquicia SENCE, muchas empresas dejarán de financiar cursos para sus empleados.</span></div></li>
+        </ul>
+      </div>
+      <div id="edu-lp" class="tl-tab-content">
+        <span class="tl-label lbl-lp">🔭 Largo Plazo</span>
+        <ul class="tl-items">
+          <li><div class="tl-dot d-neg"></div><div><b>Gratuidad congelada de facto</b><span class="tl-desc">La nueva fórmula hace casi imposible expandir la cobertura a nuevos deciles de ingreso.</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Mayor desigualdad educativa</b><span class="tl-desc">Sin complemento de becas, la reforma puede dejar atrás a estudiantes de familias de menores recursos.</span></div></li>
+          <li><div class="tl-dot d-pos"></div><div><b>Gasto público más sostenible</b><span class="tl-desc">Si la contención funciona bien, hay más recursos para mantener la calidad de las instituciones ya en el sistema.</span></div></li>
+          <li><div class="tl-dot d-pos"></div><div><b>Sala cuna universal bien implementada</b><span class="tl-desc">Podría transformar la participación laboral femenina con impacto positivo en el PIB y corresponsabilidad del cuidado.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ EDUCACIÓN -->
+  <div class="quiz-block" id="quiz-edu" data-section="edu">
+    <h4>🧠 ¿Entendiste la sección de Educación?</h4>
+    <div id="quiz-edu-area"></div>
+    <div class="quiz-nav">
+      <span class="quiz-progress" id="quiz-edu-prog"></span>
+      <button class="quiz-next" id="quiz-edu-next" onclick="nextQuestion('edu')">Siguiente →</button>
+    </div>
+    <div class="quiz-result" id="quiz-edu-result"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     MEDIOAMBIENTE
+════════════════════════════════════════ -->
+<div class="seccion" id="ambiente">
+  <div class="sec-header">
+    <div class="sec-icon-wrap" style="background:var(--amb-bg)">🌿</div>
+    <div>
+      <div class="sec-kicker texto-amb">Impacto Medioambiental</div>
+      <div class="sec-title" style="color:var(--amb-d)">¿Qué cambia para el planeta y las comunidades?</div>
+      <div class="sec-desc">Permisos ambientales, protección judicial y proyectos de inversión.</div>
+    </div>
+  </div>
+
+  <!-- SEIA -->
+  <div class="card">
+    <div class="card-head" style="background:var(--amb-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(29,138,69,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">📋</text></svg>
+      <div>
+        <h3 class="texto-amb">Menos trámites en el <span class="tip" data-tip="Sistema de Evaluación de Impacto Ambiental: proceso donde el Estado decide si un proyecto (mina, central, carretera) puede ejecutarse o no, según su impacto ambiental">SEIA</span> → Proyectos se aprueban más rápido</h3>
+        <p class="ch-sub">¿Qué es bueno? ¿Qué tiene riesgo?</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="g4" style="margin-top:10px;margin-bottom:14px;">
+        <div class="gi" style="background:var(--amb-bg);">
+          <div style="font-size:1.4rem;margin-bottom:6px;">⚡</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">Mejoras tecnológicas sin papeleo</div>
+          <div style="font-size:.8rem;color:var(--txt2);line-height:1.45;">Actualizar máquinas por tecnología más limpia <strong>en el mismo lugar</strong> ya no requiere una nueva evaluación ambiental.</div>
+        </div>
+        <div class="gi" style="background:var(--amb-bg);">
+          <div style="font-size:1.4rem;margin-bottom:6px;">🏛️</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">El SEA toma el control</div>
+          <div style="font-size:.8rem;color:var(--txt2);line-height:1.45;">Puede filtrar y rechazar pedidos de otros ministerios que dilaten los procesos sin fundamento técnico.</div>
+        </div>
+        <div class="gi" style="background:var(--amb-bg);">
+          <div style="font-size:1.4rem;margin-bottom:6px;">⏰</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">Permisos con fecha límite de impugnación</div>
+          <div style="font-size:.8rem;color:var(--txt2);line-height:1.45;">El plazo para invalidar permisos sectoriales baja de <strong>2 años a solo 6 meses</strong>. Después, el permiso es intocable.</div>
+        </div>
+        <div class="gi" style="background:var(--amb-bg);">
+          <div style="font-size:1.4rem;margin-bottom:6px;">🦴</div>
+          <div style="font-size:.84rem;font-weight:700;margin-bottom:4px;">Hallazgos arqueológicos: 20 días</div>
+          <div style="font-size:.8rem;color:var(--txt2);line-height:1.45;">Si no se responde en 20 días → aprobación <strong>automática</strong>. El patrimonio puede quedar sin protección real.</div>
+        </div>
+      </div>
+      <div class="citi-box citi-mix">
+        <div class="ci">⚖️</div>
+        <div><strong>¿Es bueno o malo para el medioambiente?</strong>
+          <ul>
+            <li>Proyectos con estudios técnicos completos → se aprueban más rápido. ✅</li>
+            <li>Si no se refuerza el SEA con más técnicos y recursos → pueden aprobarse proyectos mal evaluados. ❌</li>
+            <li>La rapidez no reemplaza la calidad: un permiso mal dado termina en litigios costosos. ⚠️</li>
+          </ul>
+        </div>
+      </div>
+      <div class="citi-box citi-info">
+        <div class="ci">🌱</div>
+        <div><strong>Conexión con colegios SNCAE</strong>
+          <p>Los establecimientos que trabajan hacia los niveles de excelencia del <span class="tip" data-tip="Sistema Nacional de Certificación Ambiental de Establecimientos Educacionales">SNCAE</span> deben documentar y proteger los ecosistemas locales de su comunidad. Si proyectos de inversión cercanos pueden aprobarse más rápido y con menos controles, los ecosistemas que los estudiantes estudian y monitorean podrían verse afectados antes de que cualquier medida judicial los proteja.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cautelares 6 meses -->
+  <div class="card">
+    <div class="card-head" style="background:var(--amb-bg)">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="rgba(29,138,69,.15)"/><text y="28" x="20" text-anchor="middle" font-size="22">⏱️</text></svg>
+      <div>
+        <h3 class="texto-amb">Comunidades logran frenar una obra → La obra se reactiva igual a los 6 meses</h3>
+        <p class="ch-sub">El límite a las medidas cautelares ambientales</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div style="background:var(--amb-bg);border-radius:12px;padding:16px;margin-bottom:14px;">
+        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;">
+          <div style="background:var(--amb-m);color:#fff;border-radius:8px;padding:10px 12px;text-align:center;font-size:.8rem;font-weight:700;">Juicio<br>inicia</div>
+          <div style="min-width:0;">
+            <div style="background:linear-gradient(90deg,#4CC87A,#F39C12,#E74C3C);height:12px;border-radius:6px;"></div>
+            <div style="display:flex;justify-content:space-between;font-size:.74rem;color:var(--txt2);margin-top:5px;"><span>30 días iniciales</span><span>Máximo 6 meses</span></div>
+          </div>
+          <div style="background:#E74C3C;color:#fff;border-radius:8px;padding:10px 12px;text-align:center;font-size:.8rem;font-weight:700;">Obra<br>reactiva</div>
+        </div>
+        <div style="font-size:.82rem;color:var(--txt2);margin-top:12px;line-height:1.55;">
+          <strong>Antes:</strong> Un tribunal podía detener una obra indefinidamente mientras duraba el juicio (puede tardar años).<br>
+          <strong>Con la reforma:</strong> Máximo <strong>6 meses</strong> de paralización total. Después, la obra continúa aunque el juicio no haya terminado.
+        </div>
+      </div>
+      <ul class="chunk-list">
+        <li><span class="dot d-neg"></span><div>Si una comunidad indígena o vecinos frenan una obra por riesgo ambiental, esa protección <strong>expira a los 6 meses sin importar el daño potencial</strong>.</div></li>
+        <li><span class="dot d-neg"></span><div>La mayoría de los juicios ambientales duran más de 6 meses → la obra puede continuar mientras se dicta sentencia.</div></li>
+        <li><span class="dot d-pos"></span><div>Evita que proyectos con permiso aprobado queden paralizados indefinidamente por litigios dilatorios.</div></li>
+      </ul>
+      <div class="citi-box citi-jus">
+        <div class="ci">⚖️</div>
+        <div><strong>La alerta de la Corte Suprema sobre esto</strong>
+          <p>El máximo tribunal advirtió que este límite "puede tensionar la tutela judicial efectiva y el principio preventivo ambiental" cuando exista riesgo de daño <strong>grave e irreversible</strong>. Propone que en esos casos el juez pueda mantener la cautelar con fundamentos reforzados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline medioambiente (tabs) -->
+  <div class="card">
+    <div class="tl-tabs">
+      <div class="tl-tab-btns">
+        <button class="tl-tab-btn cp active" onclick="switchTab(this,'amb-cp','amb')">⚡ Corto Plazo (2026-2028)</button>
+        <button class="tl-tab-btn lp" onclick="switchTab(this,'amb-lp','amb')">🔭 Largo Plazo (2029 en adelante)</button>
+      </div>
+      <div id="amb-cp" class="tl-tab-content active">
+        <span class="tl-label lbl-cp">⚡ Corto Plazo</span>
+        <ul class="tl-items">
+          <li><div class="tl-dot d-pos"></div><div><b>Proyectos aprobados más rápido</b><span class="tl-desc">Empresas con estudios completos tendrán plazos predecibles para iniciar obras.</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Decretos ambientales ya retirados</b><span class="tl-desc">El gobierno ya retiró normas urgentes de protección de salud pública antes de que la ley se apruebe.</span></div></li>
+          <li><div class="tl-dot d-mix"></div><div><b>Hallazgos arqueológicos en riesgo</b><span class="tl-desc">La aprobación automática en 20 días puede dejar sin protección real a patrimonio cultural irreemplazable.</span></div></li>
+        </ul>
+      </div>
+      <div id="amb-lp" class="tl-tab-content">
+        <span class="tl-label lbl-lp">🔭 Largo Plazo</span>
+        <ul class="tl-items">
+          <li><div class="tl-dot d-neg"></div><div><b>Alerta científica internacional</b><span class="tl-desc">Una carta publicada en la revista Science firmada por científicos chilenos advierte que la política ambiental de Chile está "en riesgo".</span></div></li>
+          <li><div class="tl-dot d-neg"></div><div><b>Mayor conflictividad social</b><span class="tl-desc">Si las comunidades sienten que perdieron protección judicial, pueden recurrir a bloqueos y protestas, generando más conflictos.</span></div></li>
+          <li><div class="tl-dot d-pos"></div><div><b>Potencial de modernización</b><span class="tl-desc">Si se fortalece el SEA con más recursos técnicos, el sistema podría ser más rápido Y más robusto a la vez.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ MEDIOAMBIENTE -->
+  <div class="quiz-block" id="quiz-amb" data-section="amb" style="background:linear-gradient(135deg,#F8FDF9,#EAFAF1);border-color:#C3E6CB;">
+    <h4 style="color:var(--amb-d);">🧠 ¿Entendiste la sección de Medioambiente?</h4>
+    <div id="quiz-amb-area"></div>
+    <div class="quiz-nav">
+      <span class="quiz-progress" id="quiz-amb-prog"></span>
+      <button class="quiz-next" id="quiz-amb-next" onclick="nextQuestion('amb')" style="background:var(--amb-m);">Siguiente →</button>
+    </div>
+    <div class="quiz-result" id="quiz-amb-result"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     CORTE SUPREMA
+════════════════════════════════════════ -->
+<div class="seccion" id="justicia">
+  <div class="sec-header">
+    <div class="sec-icon-wrap" style="background:var(--jus-bg)">⚖️</div>
+    <div>
+      <div class="sec-kicker texto-jus">Alerta del Poder Judicial</div>
+      <div class="sec-title" style="color:var(--jus-d)">¿Qué advirtió la Corte Suprema?</div>
+      <div class="sec-desc">Oficio N°116-2026 · Tribunal Pleno · 6 de mayo de 2026 · 27 páginas de análisis formal.</div>
+    </div>
+  </div>
+
+  <div class="corte-section">
+    <h2>Corte Suprema de Chile</h2>
+    <p class="sub">Oficio N°116-2026 · Tribunal Pleno · 27 páginas</p>
+    <div class="corte-grid">
+      <div class="corte-card">
+        <h4>🔍 Problema 1: ¿Quién puede impugnar un permiso?</h4>
+        <ul>
+          <li>La reforma permite atacar un permiso ambiental directamente en el Tribunal Ambiental.</li>
+          <li>Pero no define claramente <strong>quién tiene ese derecho</strong>.</li>
+          <li>Resultado: la norma puede quedar sin efecto práctico por confusión legal.</li>
+        </ul>
+      </div>
+      <div class="corte-card">
+        <h4>⚠️ Problema 2: El Estado paga cuando un permiso estuvo mal hecho</h4>
+        <ul>
+          <li>Si se anula un permiso ambiental mal evaluado, el Fisco debe devolver <strong>todo lo que la empresa gastó</strong>.</li>
+          <li>La Corte lo llama transformar al Estado en un "asegurador" de negocios privados.</li>
+          <li>El costo lo pagan los impuestos de todos los ciudadanos.</li>
+        </ul>
+      </div>
+      <div class="corte-card">
+        <h4>⏱️ Problema 3: Jueces con miedo de proteger el medioambiente</h4>
+        <ul>
+          <li>Si un juez sabe que anular un permiso genera una <strong>deuda fiscal millonaria</strong>, puede sentir presión para no fallar a favor del medioambiente.</li>
+          <li>4 ministros del Pleno votaron en contra de este mecanismo por este motivo.</li>
+          <li>Riesgo de inhibición judicial: el fallo correcto puede tener un costo fiscal enorme.</li>
+        </ul>
+      </div>
+      <div class="corte-card">
+        <h4>📅 Problema 4: 6 meses pueden no ser suficientes</h4>
+        <ul>
+          <li>El límite de 6 meses para cautelares puede ser insuficiente ante daño ambiental <strong>grave e irreversible</strong>.</li>
+          <li>Si el juicio principal no termina en ese plazo, la obra continúa aunque haya riesgo.</li>
+          <li>La Corte pide una excepción fundada para casos críticos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="corte-veredicto">
+      <strong>Veredicto del Tribunal Pleno:</strong> El proyecto tiene objetivos válidos de certeza jurídica y racionalización. Sin embargo, requiere ajustes: debe precisarse quién puede impugnar permisos ambientales, exigirse criterios estrictos (buena fe, ausencia de culpa del titular) para que el Estado reembolse gastos, y debe permitirse que los jueces mantengan cautelares cuando exista riesgo ambiental grave o irreversible.<br><br>
+      <em style="opacity:.7;">Voto disidente: Ministros Silva, Llanos, González y Zepeda votaron en contra del mecanismo de restitución de gastos, advirtiendo que puede inhibir a los jueces de proteger el medioambiente ante el riesgo de generar deudas fiscales automáticas.</em>
+    </div>
+  </div>
+
+  <!-- Paso a paso Estado como asegurador -->
+  <div class="card">
+    <div class="card-head">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#FEF0ED"/><text y="28" x="20" text-anchor="middle" font-size="22">🏦</text></svg>
+      <div>
+        <h3 style="color:var(--jus-m)">Permiso mal otorgado → El Estado (con tus impuestos) paga la cuenta</h3>
+        <p class="ch-sub">Explicado en 4 pasos simples</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="step-flow s4" style="margin-bottom:14px;">
+        <div class="step-box">
+          <div class="se">🏗️</div>
+          <div class="sl">Paso 1</div>
+          <div class="st">El Estado otorga un <span class="tip" data-tip="Resolución de Calificación Ambiental: el permiso que autoriza a ejecutar un proyecto de inversión tras el proceso de evaluación ambiental">permiso ambiental (RCA)</span> a una empresa.</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-box">
+          <div class="se">💸</div>
+          <div class="sl">Paso 2</div>
+          <div class="st">La empresa invierte millones y comienza a construir confiando en ese permiso.</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-box" style="background:#FEF0ED;border:1.5px solid #FADBD8;">
+          <div class="se">🔨</div>
+          <div class="sl" style="color:#C0392B;">Paso 3</div>
+          <div class="st">Un tribunal <strong>anula el permiso</strong> porque la evaluación ambiental estuvo mal hecha.</div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-box" style="background:#FEF9E7;border:1.5px solid #FAD7A0;">
+          <div class="se">🤑</div>
+          <div class="sl" style="color:#9A7D0A;">Paso 4 (nuevo)</div>
+          <div class="st">El <strong>Estado paga con impuestos de todos</strong> lo que la empresa gastó en la obra.</div>
+        </div>
+      </div>
+      <div class="citi-box citi-neg">
+        <div class="ci">🤔</div>
+        <div><strong>¿Por qué es polémico?</strong>
+          <ul>
+            <li>El riesgo del negocio privado se traspasa al bolsillo de los ciudadanos.</li>
+            <li>Los jueces pueden evitar anular permisos malos para no generar deudas fiscales millonarias.</li>
+            <li>La Corte Suprema señala que esto se aleja de todo el sistema de responsabilidad civil vigente.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ CORTE -->
+  <div class="quiz-block" id="quiz-jus" data-section="jus" style="background:linear-gradient(135deg,#FDF8F7,#FEF0ED);border-color:#FADBD8;">
+    <h4 style="color:var(--jus-d);">🧠 ¿Entendiste las alertas de la Corte Suprema?</h4>
+    <div id="quiz-jus-area"></div>
+    <div class="quiz-nav">
+      <span class="quiz-progress" id="quiz-jus-prog"></span>
+      <button class="quiz-next" id="quiz-jus-next" onclick="nextQuestion('jus')" style="background:var(--jus-m);">Siguiente →</button>
+    </div>
+    <div class="quiz-result" id="quiz-jus-result"></div>
+  </div>
+</div>
+
+<!-- ─── RESUMEN ─── -->
+<div class="seccion" id="resumen">
+  <div class="sec-header">
+    <div class="sec-icon-wrap" style="background:#EEF2F7">📊</div>
+    <div>
+      <div class="sec-kicker" style="color:#4A5568;">Síntesis</div>
+      <div class="sec-title">Tabla resumen de todos los impactos</div>
+    </div>
+  </div>
+  <table class="tabla-resumen">
+    <thead style="background:#1A3C5E;color:#fff;">
+      <tr>
+        <th style="width:12%">Área</th>
+        <th style="width:26%">¿Qué cambia?</th>
+        <th style="width:24%">Corto plazo</th>
+        <th style="width:24%">Largo plazo</th>
+        <th style="width:14%">Impacto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>💹</strong></td><td>IVA 0% a viviendas nuevas (12 meses)</td><td>Activa construcción, baja precios, genera empleo</td><td>Sin cambio estructural; beneficio temporal</td><td><span class="rtag rtag-v">✅ Positivo</span></td></tr>
+      <tr><td><strong>💹</strong></td><td>Impuesto corporativo 27%→23%</td><td>Empresas pagan menos; déficit fiscal inicial</td><td>Más inversión si funciona; riesgo si no se compensa</td><td><span class="rtag rtag-m">⚠️ Mixto</span></td></tr>
+      <tr><td><strong>💹</strong></td><td>Invariabilidad tributaria 25 años (&gt;USD 50M)</td><td>Señal positiva para grandes inversores</td><td>Limita soberanía tributaria hasta el año 2051</td><td><span class="rtag rtag-r">❌ Riesgo</span></td></tr>
+      <tr><td><strong>💹</strong></td><td>Fondo emergencia incendios +$400 mil millones</td><td>Reconstrucción en Ñuble y Biobío</td><td>Recuperación económica local</td><td><span class="rtag rtag-v">✅ Positivo</span></td></tr>
+      <tr><td><strong>🎓</strong></td><td>Pausa 2 años a nuevas instituciones en gratuidad</td><td>Frena a instituciones que esperaban entrar en 2028-29</td><td>Fórmula nueva congela expansión indefinidamente</td><td><span class="rtag rtag-r">❌ Regresivo</span></td></tr>
+      <tr><td><strong>🎓</strong></td><td>Salvavidas deudores CAE "castigados"</td><td>90 días para plan de 48 cuotas sin intereses futuros</td><td>Alivio permanente para miles de familias</td><td><span class="rtag rtag-v">✅ Positivo</span></td></tr>
+      <tr><td><strong>🎓</strong></td><td>Eliminación Franquicia SENCE</td><td>Empresas pierden incentivo para capacitar</td><td>Menos inversión en capital humano</td><td><span class="rtag rtag-r">❌ Negativo</span></td></tr>
+      <tr><td><strong>🌿</strong></td><td>Mejoras tecnológicas sin evaluación ambiental</td><td>Menos trámites para actualización limpia</td><td>Riesgo de subdeclaración de impactos</td><td><span class="rtag rtag-m">⚠️ Mixto</span></td></tr>
+      <tr><td><strong>🌿</strong></td><td>Medidas cautelares máximo 6 meses</td><td>Certeza para proyectos con permiso aprobado</td><td>Comunidades pierden protección judicial efectiva</td><td><span class="rtag rtag-r">❌ Riesgo</span></td></tr>
+      <tr><td><strong>🌿</strong></td><td>Estado paga gastos si anula permiso</td><td>Incentiva inversión con más seguridad</td><td>Fisco asume riesgo privado; posible inhibición judicial</td><td><span class="rtag rtag-r">❌ Alto riesgo</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── CONCLUSIÓN ─── -->
+<div class="conclusion">
+  <h2>🏆 Las 3 condiciones para que la reforma funcione</h2>
+  <p style="opacity:.82;font-size:.9rem;">El potencial de la Megarreforma depende de tres equilibrios que aún no están garantizados:</p>
+  <div class="tres-pilares">
+    <div class="pilar">
+      <div class="p-icon">💰</div>
+      <div class="p-title">1. Responsabilidad fiscal</div>
+      <div class="p-desc">La rebaja tributaria necesita compensarse con mayor crecimiento real. Sin eso, el déficit obligará a recortar servicios sociales o subir impuestos en el futuro.</div>
+    </div>
+    <div class="pilar">
+      <div class="p-icon">🎓</div>
+      <div class="p-title">2. Equidad en educación</div>
+      <div class="p-desc">Controlar el gasto no puede cerrar puertas a quienes más necesitan la educación superior. Se requieren becas, focalización y calidad, no solo contención.</div>
+    </div>
+    <div class="pilar">
+      <div class="p-icon">🌿</div>
+      <div class="p-title">3. Protección ambiental robusta</div>
+      <div class="p-desc">Menos trámites debe significar evaluaciones más rápidas, no menos rigurosas. Sin fortalecer el SEA con recursos técnicos, el ahorro de tiempo hoy puede convertirse en daños y litigios mañana.</div>
+    </div>
+  </div>
+  <div style="margin-top:22px;padding:16px 20px;background:rgba(255,255,255,.1);border-radius:12px;font-size:.9rem;line-height:1.7;opacity:.9;">
+    <strong>En síntesis:</strong> La reforma puede acelerar inversión y empleo en el corto plazo. Su éxito de largo plazo depende de que la reducción tributaria sea fiscalmente sostenible, que la educación mantenga equidad, y que la agilización ambiental no erosione la tutela judicial advertida por la Corte Suprema.
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong>Fuentes:</strong> Oficio N°116-2026, Corte Suprema de Chile (6 mayo 2026) · Boletín N°18.216-05 Cámara de Diputados · Ministerio de Hacienda · FMI Consulta Artículo IV 2026<br>
+  <strong>Prensa:</strong> La Tercera · T13 · El Dínamo · Emol · Radio U. de Chile · Mongabay · BioBioChile · Cooperativa<br>
+  <em>Guía ciudadana con fines informativos y pedagógicos · Chile · Junio 2026</em>
+</div>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
+<script>
+/* ── DATOS DE QUIZZES ── */
+const QUIZZES = {
+  eco: [
+    {
+      q: "¿De qué porcentaje a qué porcentaje baja el impuesto que pagan las grandes empresas en Chile con la Megarreforma?",
+      opts: ["Del 30% al 25%","Del 27% al 23%","Del 25% al 20%","Del 27% al 25%"],
+      correct: 1,
+      fb_ok: "✅ Correcto. El impuesto de Primera Categoría baja gradualmente del 27% al 23%, buscando mejorar la competitividad de Chile frente a países de la OCDE.",
+      fb_ko: "❌ Incorrecto. La rebaja es del 27% al 23%, de forma gradual durante el mandato de Kast hasta 2030."
+    },
+    {
+      q: "¿Cuántos años dura la 'invariabilidad tributaria' que la reforma ofrece a los grandes inversores?",
+      opts: ["10 años","15 años","20 años","25 años"],
+      correct: 3,
+      fb_ok: "✅ Correcto. 25 años, lo que significa que ningún gobierno podrá subir esos impuestos hasta el año 2051, cubriendo los próximos 6 períodos presidenciales.",
+      fb_ko: "❌ Incorrecto. Son 25 años de garantía tributaria para proyectos de más de USD 50 millones."
+    }
+  ],
+  edu: [
+    {
+      q: "¿Qué ocurre con la gratuidad de los estudiantes que ya la tienen actualmente?",
+      opts: ["La pierden inmediatamente","Se reduce a la mitad","La mantienen sin cambios","Solo la mantienen hasta 2028"],
+      correct: 2,
+      fb_ok: "✅ Correcto. Los estudiantes que ya tienen gratuidad la mantienen intacta. Lo que cambia es que ninguna institución nueva puede entrar al sistema en 2028 y 2029.",
+      fb_ko: "❌ Incorrecto. Los beneficiarios actuales no pierden nada. La reforma solo frena la expansión hacia nuevos estudiantes e instituciones."
+    },
+    {
+      q: "¿Cuántos días tienen los deudores CAE 'castigados' para acogerse al nuevo plan de pago en la Tesorería?",
+      opts: ["30 días","60 días","90 días","120 días"],
+      correct: 2,
+      fb_ok: "✅ Correcto. Son 90 días desde la publicación de la ley para inscribirse en un plan de hasta 48 cuotas con la deuda congelada en pesos.",
+      fb_ko: "❌ Incorrecto. El plazo es de 90 días. Es importante no perder esta ventana de oportunidad."
+    }
+  ],
+  amb: [
+    {
+      q: "¿Cuánto tiempo máximo puede durar la paralización judicial de un proyecto que ya tiene su permiso ambiental aprobado?",
+      opts: ["3 meses","6 meses","1 año","2 años"],
+      correct: 1,
+      fb_ok: "✅ Correcto. El tope absoluto es 6 meses, incluyendo todas las prórrogas. Después de ese plazo, la obra se reactiva aunque el juicio no haya terminado.",
+      fb_ko: "❌ Incorrecto. El límite máximo es 6 meses. La Corte Suprema advirtió que este plazo puede ser insuficiente en casos de daño ambiental grave e irreversible."
+    },
+    {
+      q: "¿Cuántos días tiene el Consejo de Monumentos Nacionales para pronunciarse sobre un hallazgo arqueológico en una obra?",
+      opts: ["10 días","15 días","20 días","30 días"],
+      correct: 2,
+      fb_ok: "✅ Correcto. Solo 20 días. Si no responde a tiempo, la empresa recibe una aprobación automática y puede seguir construyendo.",
+      fb_ko: "❌ Incorrecto. Son 20 días corridos. Si el Consejo no responde, se activa la aprobación automática."
+    }
+  ],
+  jus: [
+    {
+      q: "Según la Corte Suprema, si el Estado otorga un permiso ambiental mal hecho y un tribunal lo anula, ¿quién paga los gastos de la empresa según la reforma?",
+      opts: ["La empresa asume sus propios riesgos","El Fisco paga con impuestos de todos","Se divide el costo entre empresa y Estado","Lo paga el Ministerio de Medio Ambiente"],
+      correct: 1,
+      fb_ok: "✅ Correcto. La reforma crea una obligación para el Fisco de devolver los gastos directos de la empresa. La Corte advierte que esto transforma al Estado en 'asegurador general' del riesgo privado.",
+      fb_ko: "❌ Incorrecto. El Fisco (con impuestos de todos) debe pagar lo que la empresa gastó en la obra, según los artículos 14-18 de la reforma."
+    },
+    {
+      q: "¿Cuántos ministros del Tribunal Pleno de la Corte Suprema votaron en contra del mecanismo de restitución de gastos al inversor?",
+      opts: ["2 ministros","3 ministros","4 ministros","5 ministros"],
+      correct: 2,
+      fb_ok: "✅ Correcto. 4 ministros (Silva, Llanos, González y Zepeda) votaron en contra, advirtiendo que puede inhibir a los jueces de proteger el medioambiente.",
+      fb_ko: "❌ Incorrecto. Fueron 4 ministros quienes emitieron voto de minoría contra este mecanismo."
+    }
+  ]
+};
+
+const state = {};
+Object.keys(QUIZZES).forEach(sec => {
+  state[sec] = { current: 0, score: 0, answered: false };
+  renderQuestion(sec);
+});
+
+function renderQuestion(sec) {
+  const s = state[sec];
+  const q = QUIZZES[sec][s.current];
+  const area = document.getElementById('quiz-'+sec+'-area');
+  const total = QUIZZES[sec].length;
+
+  area.innerHTML = `
+    <p class="quiz-q">${s.current+1}. ${q.q}</p>
+    <div class="quiz-opts">
+      ${q.opts.map((o,i)=>`
+        <button class="quiz-opt" onclick="selectAnswer('${sec}',${i})">
+          <span class="ql">${['A','B','C','D'][i]}</span>${o}
+        </button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="quiz-${sec}-fb"></div>
+  `;
+  document.getElementById('quiz-'+sec+'-prog').textContent = `Pregunta ${s.current+1} de ${total}`;
+  document.getElementById('quiz-'+sec+'-next').classList.remove('show');
+  s.answered = false;
+}
+
+function selectAnswer(sec, idx) {
+  const s = state[sec];
+  if (s.answered) return;
+  s.answered = true;
+
+  const q = QUIZZES[sec][s.current];
+  const opts = document.querySelectorAll('#quiz-'+sec+'-area .quiz-opt');
+  opts.forEach(o => o.setAttribute('disabled','true'));
+
+  if (idx === q.correct) {
+    opts[idx].classList.add('correct');
+    s.score++;
+    showFeedback(sec, q.fb_ok, true);
+  } else {
+    opts[idx].classList.add('wrong');
+    opts[q.correct].classList.add('revealed-correct');
+    showFeedback(sec, q.fb_ko, false);
+  }
+
+  const nextBtn = document.getElementById('quiz-'+sec+'-next');
+  if (s.current < QUIZZES[sec].length - 1) {
+    nextBtn.textContent = 'Siguiente →';
+  } else {
+    nextBtn.textContent = 'Ver resultado';
+  }
+  nextBtn.classList.add('show');
+}
+
+function showFeedback(sec, msg, ok) {
+  const fb = document.getElementById('quiz-'+sec+'-fb');
+  fb.textContent = msg;
+  fb.className = 'quiz-feedback show ' + (ok ? 'ok' : 'ko');
+}
+
+function nextQuestion(sec) {
+  const s = state[sec];
+  s.current++;
+  if (s.current < QUIZZES[sec].length) {
+    renderQuestion(sec);
+  } else {
+    showResult(sec);
+  }
+}
+
+function showResult(sec) {
+  const s = state[sec];
+  const total = QUIZZES[sec].length;
+  const pct = Math.round(s.score/total*100);
+  const area = document.getElementById('quiz-'+sec+'-area');
+  const next = document.getElementById('quiz-'+sec+'-next');
+  const prog = document.getElementById('quiz-'+sec+'-prog');
+  const res = document.getElementById('quiz-'+sec+'-result');
+
+  area.innerHTML = '';
+  next.classList.remove('show');
+  prog.textContent = '';
+
+  let msg = '', color = '';
+  if (pct === 100) { msg = '🏆 ¡Perfecto! Dominaste este módulo.'; color = '#1E8449'; }
+  else if (pct >= 50) { msg = '👍 ¡Bien! Repasa los conceptos que fallaste.'; color = '#9A7D0A'; }
+  else { msg = '📚 Vuelve a leer la sección — lo captarás.'; color = '#C0392B'; }
+
+  res.innerHTML = `<span style="color:${color};font-size:1.1rem;">${msg}</span><br><span style="font-size:.88rem;color:var(--txt2);font-weight:500;">${s.score}/${total} respuestas correctas (${pct}%)</span>`;
+  res.classList.add('show');
+}
+
+/* ── TABS DE TIMELINE ── */
+function switchTab(btn, contentId, group) {
+  document.querySelectorAll('[id^="'+group+'-"]').forEach(el => el.classList.remove('active'));
+  btn.closest('.tl-tab-btns').querySelectorAll('.tl-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(contentId).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── TOOLTIP FLOTANTE (position:fixed, sin conflicts) ── */
+(function() {
+  const tt = document.createElement('div');
+  tt.id = 'tt';
+  document.body.appendChild(tt);
+
+  let current = null;
+
+  function place(el) {
+    // Medir el elemento objetivo en coordenadas de viewport
+    const r   = el.getBoundingClientRect();
+    const vw  = window.innerWidth;
+    const vh  = window.innerHeight;
+
+    // Poner el contenido antes de medir las dimensiones del tooltip
+    tt.textContent = el.dataset.tip;
+
+    // Hacer visible pero transparente para medir
+    tt.style.visibility = 'hidden';
+    tt.style.opacity    = '0';
+    tt.style.top        = '0px';
+    tt.style.left       = '0px';
+    tt.classList.add('show');
+
+    requestAnimationFrame(function() {
+      const tw = tt.offsetWidth;
+      const th = tt.offsetHeight;
+
+      // Posición horizontal: centrado sobre el elemento
+      let left = r.left + r.width / 2 - tw / 2;
+      if (left < 8)          left = 8;
+      if (left + tw > vw - 8) left = vw - tw - 8;
+
+      // Posición vertical: encima si cabe, si no debajo
+      let top = r.top - th - 12;
+      if (top < 8) top = r.bottom + 12;
+
+      tt.style.left = left + 'px';
+      tt.style.top  = top  + 'px';
+
+      // Ahora sí mostrar
+      tt.style.visibility = '';
+      tt.style.opacity    = '1';
+    });
+  }
+
+  function hide() {
+    tt.classList.remove('show');
+    tt.style.opacity = '0';
+    current = null;
+  }
+
+  /* ─ Desktop: hover ─ */
+  document.addEventListener('mouseover', function(e) {
+    const el = e.target.closest('.tip');
+    if (el && el !== current) { current = el; place(el); }
+  });
+  document.addEventListener('mouseout', function(e) {
+    const to = e.relatedTarget;
+    if (!to || !to.closest || !to.closest('.tip')) hide();
+  });
+
+  /* ─ Móvil: tap ─ */
+  document.addEventListener('click', function(e) {
+    const el = e.target.closest('.tip');
+    if (el) {
+      e.preventDefault();
+      if (current === el) { hide(); }
+      else { current = el; place(el); }
+    } else {
+      hide();
+    }
+  });
+})();
+</script>
+</body>
+</html>
